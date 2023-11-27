@@ -1,0 +1,49 @@
+<div>
+  <mat-form-field>
+    <input matInput placeholder="Pesquisar por nome ou e-mail"
+      [(ngModel)]="searchValue">
+  </mat-form-field>
+  <button mat-button (click)="applyFilter()" color="primary">Pesquisar</button>
+</div>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <mat-header-cell *matHeaderCellDef>Gênego</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.gender }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef>E-mail</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.email }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.status === '1' ? 'Ativo' : 'Inativo' }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+    <mat-cell *matCellDef="let user">
+      <a routerLink="/users/update/{{user.id}}" class="edit">
+        <i class="material-icons">
+          edit
+        </i>
+      </a>
+      <a routerLink class="delete" routerLink="/users/delete/{{user.id}}">
+        <i class="material-icons">
+          delete
+        </i>
+      </a>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>

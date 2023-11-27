@@ -1,0 +1,49 @@
+<div>
+  <mat-form-field>
+    <input matInput placeholder="Pesquisar por título ou usuário"
+      [(ngModel)]="searchValue">
+  </mat-form-field>
+  <button mat-button (click)="applyFilter()" color="primary">Pesquisar</button>
+</div>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>Cod.Usuário</mat-header-cell>
+    <mat-cell *matCellDef="let post">{{ post.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Usuário</mat-header-cell>
+    <mat-cell *matCellDef="let post">{{ post.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef>Título da postagem</mat-header-cell>
+    <mat-cell *matCellDef="let post">{{ post.title }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="body">
+    <mat-header-cell *matHeaderCellDef>Texto do postagem</mat-header-cell>
+    <mat-cell *matCellDef="let post">{{ formatText(post.body) }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+    <mat-cell *matCellDef="let post">
+      <a routerLink="/posts/update/{{post.id}}" class="edit">
+        <i class="material-icons">
+          edit
+        </i>
+      </a>
+      <a routerLink class="delete" routerLink="/posts/delete/{{post.id}}">
+        <i class="material-icons">
+          delete
+        </i>
+      </a>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>

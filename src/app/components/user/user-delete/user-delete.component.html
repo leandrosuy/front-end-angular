@@ -1,0 +1,33 @@
+<mat-card *ngIf="user">
+  <mat-card-title>Confirmar exclusão usuário</mat-card-title>
+  <form #userForm="ngForm">
+
+    <mat-form-field>
+      <input matInput placeholder="Nome" name="name" [(value)]="user.name"
+        disabled>
+    </mat-form-field>
+
+    <mat-radio-group aria-label="Select an option" name="gender"
+      [(value)]="user.gender" disabled
+      class="grup-gender"
+      >
+      <mat-radio-button value="Masculino" class="group-gender-item">Masculino</mat-radio-button>
+      <mat-radio-button value="Feminino">Feminino</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field>
+      <input matInput placeholder="E-mail" name="email" [(value)]="user.email"
+        disabled>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="deleteUser()" color="warn"
+    class="button-container"
+    [disabled]="!userForm.valid">
+    Excluir
+  </button>
+
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

@@ -1,0 +1,20 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+.grup-gender {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.group-gender-item {
+  margin-right: 10px;
+}
+

@@ -1,27 +1,48 @@
-# Frontend
+**Descrição do Projeto: Sistema de Gerenciamento de Postagens e Usuários em Angular 9**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.15.
+O projeto em questão é uma aplicação web desenvolvida em Angular 9, criada com o propósito de realizar um teste prático para avaliação de habilidades em programação e desenvolvimento front-end. O foco principal do projeto é a implementação de operações CRUD (Create, Read, Update, Delete) para entidades relacionadas a postagens e usuários.
 
-## Development server
+**Funcionalidades Principais:**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. **Cadastro de Usuários:**
 
-## Code scaffolding
+   - A aplicação permite o cadastro de novos usuários, exigindo informações como nome, e-mail e senha.
+   - Validações são implementadas para garantir a integridade dos dados inseridos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Listagem de Usuários:**
 
-## Build
+   - Os usuários cadastrados são exibidos em uma lista, proporcionando uma visão geral para facilitar a navegação.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+3. **Edição e Exclusão de Usuários:**
 
-## Running unit tests
+   - A funcionalidade de edição permite que os usuários atualizem suas informações cadastradas.
+   - A exclusão de usuários é implementada com confirmação para evitar ações inadvertidas.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. **Cadastro de Postagens:**
 
-## Running end-to-end tests
+   - Os usuários podem criar postagens, incluindo título, conteúdo e outras informações relevantes.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+5. **Listagem de Postagens:**
 
-## Further help
+   - Todas as postagens são listadas, permitindo aos usuários visualizar rapidamente o conteúdo publicado.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+6. **Edição e Exclusão de Postagens:**
+
+   - Assim como os usuários, as postagens podem ser editadas para atualização de conteúdo.
+   - A exclusão de postagens também é contemplada, exigindo confirmação do usuário.
+
+7. **Interação entre Usuários e Postagens:**
+   - A aplicação promove a interação entre usuários e postagens, permitindo comentários e feedback.
+
+**Tecnologias Utilizadas:**
+
+- Angular 9: O framework front-end utilizado para o desenvolvimento da aplicação.
+- TypeScript: Linguagem de programação utilizada para o desenvolvimento em Angular.
+- HTML/CSS: Tecnologias fundamentais para a construção da interface da aplicação.
+- Backend (opcional): Integração com um backend para armazenamento e gerenciamento de dados.
+
+**Objetivo do Teste Prático:**
+
+O teste prático tem como objetivo avaliar a capacidade do desenvolvedor em implementar funcionalidades essenciais, garantir a usabilidade da aplicação e adotar boas práticas de codificação. A avaliação inclui a eficiência do código, a manutenibilidade da aplicação e a aderência aos requisitos estabelecidos.
+
+Este projeto serve não apenas como uma oportunidade para demonstrar habilidades técnicas, mas também como um meio de avaliar a capacidade do desenvolvedor em criar uma aplicação Angular 9 robusta, modular e fácil de usar.

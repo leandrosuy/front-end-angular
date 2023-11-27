@@ -1,0 +1,42 @@
+<mat-card *ngIf="user">
+  <mat-card-title>Alterar Usuário</mat-card-title>
+  <form #userForm="ngForm">
+
+    <mat-form-field>
+      <input matInput placeholder="Nome" name="name" [(ngModel)]="user.name"
+        required>
+    </mat-form-field>
+
+    <mat-radio-group aria-label="Select an option" name="gender"
+      [(ngModel)]="user.gender" required
+      class="grup-gender"
+      >
+      <mat-radio-button value="Masculino" class="group-gender-item">Masculino</mat-radio-button>
+      <mat-radio-button value="Feminino">Feminino</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field>
+      <input matInput placeholder="E-mail" name="email" [(ngModel)]="user.email"
+        required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select placeholder="Selecione o status" name="status" [(ngModel)]="user.status" required>
+        <mat-option *ngFor="let option of statusOptions" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="updateUser()" color="primary"
+    class="button-container"
+    [disabled]="!userForm.valid">
+    Salvar
+  </button>
+
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

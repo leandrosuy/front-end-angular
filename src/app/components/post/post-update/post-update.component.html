@@ -1,0 +1,38 @@
+<mat-card *ngIf="post">
+  <mat-card-title>Editar postagem</mat-card-title>
+  <form #postForm="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Usuário" name="usuario" [(ngModel)]="post.name" required
+        [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let user of filteredUsers | async"
+          [value]="user.name"
+          (onSelectionChange)="onChangeUserId(user)"
+          >
+          {{ user.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Título da postagem" name="title"
+      [(ngModel)]="post.title"
+        required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Texto da postagem" name="body" [(ngModel)]="post.body" required
+        matTextareaAutosize matAutosizeMinRows="3"></textarea>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="updatePost()" color="primary"
+    class="button-container"
+    [disabled]="!postForm.valid">
+    Salvar
+  </button>
+
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>
